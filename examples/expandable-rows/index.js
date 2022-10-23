@@ -87,6 +87,10 @@ class Example extends React.Component {
       expandableRows: true,
       expandableRowsHeader: false,
       expandableRowsOnClick: true,
+      draggableColumns: {
+        enabled: true
+      },
+      resizableColumns: true,
       isRowExpandable: (dataIndex, expandedRows) => {
         if (dataIndex === 3 || dataIndex === 4) return false;
 
@@ -99,9 +103,24 @@ class Example extends React.Component {
       renderExpandableRow: (rowData, rowMeta) => {
         const colSpan = rowData.length + 1;
         return (
-          <TableRow>
-            <TableCell colSpan={colSpan}>Custom expandable row option. Data: {JSON.stringify(rowData)}</TableCell>
+          <React.Fragment>
+            <TableRow>
+              <TableCell colSpan={1}/>
+              <TableCell colSpan={1}>Data1</TableCell>
+              <TableCell colSpan={1}>Data2</TableCell>
+              <TableCell colSpan={1}>Data3</TableCell>
+              <TableCell colSpan={1}>Data4</TableCell>
+              <TableCell colSpan={1}>Data5</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell colSpan={1}/>
+              <TableCell colSpan={1}>Data6</TableCell>
+              <TableCell colSpan={1}>Data7</TableCell>
+              <TableCell colSpan={1}>Data8</TableCell>
+              <TableCell colSpan={1}>Data9</TableCell>
+              <TableCell colSpan={1}>Data10</TableCell>
           </TableRow>
+        </React.Fragment>
         );
       },
       onRowExpansionChange: (curExpanded, allExpanded, rowsExpanded) =>
